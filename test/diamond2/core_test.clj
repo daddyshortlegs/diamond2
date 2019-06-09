@@ -4,8 +4,6 @@
 
 
 (defn get-points-for-line [char index]
-
-
   [(- 25 index) (+ 25 index)])
 
 (deftest points-generator
@@ -16,6 +14,11 @@
   (testing "Get 2 points for Z at index 1 - B"
     (is (= 24 (nth (get-points-for-line "Z" 1) 0)))
     (is (= 26 (nth (get-points-for-line "Z" 1) 1))))
+
+  (testing "Get 2 points for Z at index 25 - Z"
+    (is (= 0 (nth (get-points-for-line "Z" 25) 0)))
+    (is (= 50 (nth (get-points-for-line "Z" 25) 1))))
+
 
   )
 
