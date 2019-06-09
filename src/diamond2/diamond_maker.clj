@@ -12,6 +12,8 @@
 (defn get-points-for-line [char index]
   [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
 
+(defn draw-line [char index]
+  " A\n")
 
 (defn -main
   "I don't do a whole lot ... yet."

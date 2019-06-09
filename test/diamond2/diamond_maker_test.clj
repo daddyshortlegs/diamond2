@@ -38,5 +38,8 @@
   (testing "Get 2 points for B at index 1"
     (is (= 0 (nth (get-points-for-line "B" 1) 0)))
     (is (= 2 (nth (get-points-for-line "B" 1) 1))))
-
   )
+
+(deftest draw-line-given-two-points
+  (testing "We draw a line for B at index 0"
+    (is (= (str " A\n") (draw-line "B" 0)))))
