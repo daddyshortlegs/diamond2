@@ -9,7 +9,7 @@
   (index-of "ABCDEFGHIJKLMNOPQRSTUVWXYZ" char))
 
 (defn get-char-of-index [index]
-  "A")
+  (str (.charAt "ABCDEFGHIJKLMNOPQRSTUVWXYZ" index)))
 
 (defn get-points-for-line [char index]
   [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
