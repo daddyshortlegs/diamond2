@@ -24,6 +24,9 @@
     (is (= 1 (get-index-of-char "B")))
     (is (= 25 (get-index-of-char "Z")))))
 
+(deftest get-char-for-index-test
+  (testing "chars"
+    (is (= (str "A") (get-char-of-index 0)))))
 
 (deftest points-generator-with-an-a
   (testing "Get 2 points for A at index 0"
@@ -40,6 +43,7 @@
     (is (= 2 (nth (get-points-for-line "B" 1) 1))))
   )
 
-(deftest draw-line-given-two-points
-  (testing "We draw a line for B at index 0"
-    (is (= (str " A\n") (draw-line "B" 0)))))
+;(deftest draw-line-given-two-points
+;  (testing "We draw a line for B at index 0"
+;    (is (= (str " A\n") (draw-line "B" 0)))
+    ;(is (= (str "B B\n") (draw-line "B" 1)))))

@@ -8,6 +8,8 @@
 (defn get-index-of-char [char]
   (index-of "ABCDEFGHIJKLMNOPQRSTUVWXYZ" char))
 
+(defn get-char-of-index [index]
+  "A")
 
 (defn get-points-for-line [char index]
   [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
