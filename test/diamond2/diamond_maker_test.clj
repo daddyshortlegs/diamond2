@@ -26,7 +26,12 @@
 
 (deftest get-char-for-index-test
   (testing "chars"
-    (is (= (str "A") (get-char-of-index 0)))))
+    (is (= (str "A") (get-char-of-index 0)))
+    (is (= (str "B") (get-char-of-index 1)))
+    (is (= (str "C") (get-char-of-index 2)))
+    (is (= (str "D") (get-char-of-index 3)))
+    (is (= (str "Z") (get-char-of-index 25)))
+    ))
 
 (deftest points-generator-with-an-a
   (testing "Get 2 points for A at index 0"
