@@ -1,12 +1,6 @@
-(ns diamond2.core-test
+(ns diamond2.diamond-maker-test
   (:require [clojure.test :refer :all]
-            [diamond2.core :refer :all]))
-
-(use '[clojure.string :only [index-of]])
-
-
-(defn get-points-for-line [char index]
-  [(- 25 index) (+ 25 index)])
+            [diamond2.diamond-maker :refer :all]))
 
 (deftest points-generator
   (testing "Get 2 points for Z at index 0"
@@ -22,8 +16,6 @@
     (is (= 50 (nth (get-points-for-line "Z" 25) 1))))
   )
 
-(defn get-index-of-char [char]
-  (index-of "ABCDEFGHIJKLMNOPQRSTUVWXYZ" char))
 
 
 (deftest get-index-for-char-test
