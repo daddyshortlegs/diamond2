@@ -25,7 +25,7 @@
     (is (= 25 (get-index-of-char "Z")))))
 
 
-;(deftest points-generator-with-an-a
-;  (testing "Get 2 points for A at index 0"
-;    (is (= 0 (nth (get-points-for-line "A" 0) 0)))
-;    (is (= 0 (nth (get-points-for-line "A" 0) 1)))))
+(deftest points-generator-with-an-a
+  (testing "Get 2 points for A at index 0"
+    (is (= 0 (nth (get-points-for-line "A" 0) 0)))
+    (is (= 0 (nth (get-points-for-line "A" 0) 1)))))

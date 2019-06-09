@@ -4,11 +4,13 @@
 (use '[clojure.string :only [index-of]])
 
 
-(defn get-points-for-line [char index]
-  [(- 25 index) (+ 25 index)])
 
 (defn get-index-of-char [char]
   (index-of "ABCDEFGHIJKLMNOPQRSTUVWXYZ" char))
+
+
+(defn get-points-for-line [char index]
+  [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
 
 
 (defn -main
