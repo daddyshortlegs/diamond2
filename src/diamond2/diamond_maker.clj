@@ -16,19 +16,12 @@
 
 (defn draw-blanks [n] (apply str (take n (repeat " "))))
 
-(defn gen-line []
-  (str (draw-blanks 3) "A" (draw-blanks 3) "A")
-  )
+(defn gen-line [i j]
+  (str
+    (draw-blanks i) "A"
+    (if (= i j) "" (str (draw-blanks (- j i 1)) "A"))
+  ))
 
-
-(defn draw-line [char index]
-  (def first (nth (get-points-for-line char index) 0))
-  (def second (nth (get-points-for-line char index) 1))
-  (str (apply str (take first (repeat " ")))
-  (str (get-char-of-index index))
-  (apply str (take second (repeat " ")))
-  (str (get-char-of-index index))
-  (str "\n")))
 
 (defn -main
   "I don't do a whole lot ... yet."

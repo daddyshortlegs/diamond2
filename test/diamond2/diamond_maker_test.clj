@@ -49,7 +49,7 @@
 
 (deftest understanding-strings
   (testing "stuff"
-    (is (= (str "   A   A") (gen-line)))))
+    (is (= (str "A") (gen-line 0 0)))))
 
 (deftest test-plot-points
   (testing "point plitting"
