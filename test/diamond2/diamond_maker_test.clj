@@ -49,8 +49,8 @@
 
 (deftest draw-line-given-two-points
   (testing "various points"
-    (is (= (str "A") (gen-line 0 0)))
-    (is (= (str "AA") (gen-line 0 1)))
-    (is (= (str " A A") (gen-line 1 3)))
-    (is (= (str "     A    A") (gen-line 5 10)))
+    (is (= (str "A") (gen-line "A" 0 0)))
+    (is (= (str "AA") (gen-line "A" 0 1)))
+    (is (= (str " B B") (gen-line "B" 1 3)))
+    (is (= (str "     C    C") (gen-line "C" 5 10)))
     ))

@@ -16,8 +16,8 @@
 
 (defn draw-blanks [n] (apply str (take n (repeat " "))))
 
-(defn gen-line [i j]
-  (str (draw-blanks i) "A" (if (= i j) "" (str (draw-blanks (- j i 1)) "A"))))
+(defn gen-line [char i j]
+  (str (draw-blanks i) char (if (= i j) "" (str (draw-blanks (- j i 1)) char))))
 
 
 (defn -main
