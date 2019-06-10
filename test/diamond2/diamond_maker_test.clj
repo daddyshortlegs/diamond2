@@ -104,18 +104,18 @@
     (is (= 2 (nth (get-points-for-line "B" 1) 1))))
   )
 
-(deftest draw-line-given-two-points
-  (testing "various points"
-    (is (= (str "A") (gen-line "A" 0 0)))
-    (is (= (str "AA") (gen-line "A" 0 1)))
-    (is (= (str " B B") (gen-line "B" 1 3)))
-    (is (= (str "     C    C") (gen-line "C" 5 10)))
-    ))
-
+;(deftest draw-line-given-two-points
+;  (testing "various points"
+;    (is (= (str "A") (gen-line "A" 0 0)))
+;    (is (= (str "AA") (gen-line "A" 0 1)))
+;    (is (= (str " B B") (gen-line "B" 1 3)))
+;    (is (= (str "     C    C") (gen-line "C" 5 10)))
+;    ))
+;
 (deftest draw-line-given-index
   (testing "various points"
-    (is (= (str "A") (plot-line 0 0 0)))
-    (is (= (str "AA") (plot-line 0 0 1)))
-    (is (= (str " B B") (plot-line 1 1 3)))
-    (is (= (str "     C    C") (plot-line 2 5 10)))
+    (is (= (str "A") (plot-line "A" 0)))
+
+    (is (= (str " A") (plot-line "B" 0)))
+    (is (= (str "B B") (plot-line "B" 1)))
     ))
