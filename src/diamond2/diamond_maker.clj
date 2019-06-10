@@ -19,6 +19,14 @@
 (defn gen-line [char i j]
   (str (draw-blanks i) char (if (= i j) "" (str (draw-blanks (- j i 1)) char))))
 
+(defn plot-line [index i j]
+  (gen-line (get-char-of-index index) i j))
+
+(defn diamond-maker [char]
+  (for [x (range 0 (get-index-of-char char))] (gen-line (get-char-of-index x))
+
+  ))
+
 
 (defn -main
   "I don't do a whole lot ... yet."
