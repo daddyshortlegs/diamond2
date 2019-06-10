@@ -47,7 +47,15 @@
     (is (= 2 (nth (get-points-for-line "B" 1) 1))))
   )
 
+(deftest understanding-strings
+  (testing "stuff"
+    (is (= (str "   A   A") (gen-line)))))
+
+(deftest test-plot-points
+  (testing "point plitting"
+    (is (= ()))))
+
 ;(deftest draw-line-given-two-points
 ;  (testing "We draw a line for B at index 0"
 ;    (is (= (str " A\n") (draw-line "B" 0)))
-    ;(is (= (str "B B\n") (draw-line "B" 1)))))
+;    (is (= (str "B B\n") (draw-line "B" 1)))))

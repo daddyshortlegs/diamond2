@@ -14,8 +14,21 @@
 (defn get-points-for-line [char index]
   [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
 
+(defn draw-blanks [n] (apply str (take n (repeat " "))))
+
+(defn gen-line []
+  (str (draw-blanks 3) "A" (draw-blanks 3) "A")
+  )
+
+
 (defn draw-line [char index]
-  " A\n")
+  (def first (nth (get-points-for-line char index) 0))
+  (def second (nth (get-points-for-line char index) 1))
+  (str (apply str (take first (repeat " ")))
+  (str (get-char-of-index index))
+  (apply str (take second (repeat " ")))
+  (str (get-char-of-index index))
+  (str "\n")))
 
 (defn -main
   "I don't do a whole lot ... yet."
