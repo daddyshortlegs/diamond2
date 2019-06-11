@@ -3,25 +3,21 @@
 
 (use '[clojure.string :only [index-of]])
 
-(defn get-index-of-char [char]
-  (index-of "ABCDEFGHIJKLMNOPQRSTUVWXYZ" char))
+(defn get-index-of-char [char] (index-of "ABCDEFGHIJKLMNOPQRSTUVWXYZ" char))
 
-(defn get-char-of-index [index]
-  (str (.charAt "ABCDEFGHIJKLMNOPQRSTUVWXYZ" index)))
+(defn get-char-of-index [index] (str (.charAt "ABCDEFGHIJKLMNOPQRSTUVWXYZ" index)))
 
 (defn get-points-for-line [char index]
   [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
 
-(defn draw-blanks [n] (apply str (take n (repeat " "))))
+(defn draw-blanks [n] (apply str (repeat n " ")))
 
 (defn gen-line [char i j]
   (str (draw-blanks i) char (if (= i j) "\n" (str (draw-blanks (- j i 1)) char "\n"))))
 
-(defn calc-leading-spaces [char index]
-  (- (get-index-of-char char) index))
+(defn calc-leading-spaces [char index] (- (get-index-of-char char) index))
 
-(defn calc-middle-spaces [char]
-  (+ 1 (* 2 (- (get-index-of-char char) 1))))
+(defn calc-middle-spaces [char] (+ 1 (* 2 (- (get-index-of-char char) 1))))
 
 (defn plot-line [char index]
   (gen-line
