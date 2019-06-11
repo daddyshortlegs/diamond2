@@ -86,7 +86,9 @@
 
 (deftest test-middle-spaces
   (testing "middle spaces"
-    (is (= 1 (calc-middle-spaces "B")))))
+    (is (= 1 (calc-middle-spaces "B")))
+    (is (= 5 (calc-middle-spaces "D")))
+    ))
 
 (deftest get-index-for-char-test
   (testing "index valiues"
@@ -125,10 +127,19 @@
     (is (= (str "     C    C\n") (gen-line "C" 5 10)))
     ))
 
-;(deftest draw-line-given-index
-;  (testing "various points"
-;    (is (= (str "A") (plot-line "A" 0)))
-;
-;    (is (= (str " A") (plot-line "B" 0)))
-;    (is (= (str "B B") (plot-line "B" 1)))
-;    ))
+(deftest draw-line-given-index
+  (testing "various points"
+    (is (= (str "A\n") (plot-line "A" 0)))
+
+    (is (= (str " A\n") (plot-line "B" 0)))
+    (is (= (str "B B\n") (plot-line "B" 1)))
+
+
+    (is (= (str "   A\n") (plot-line "D" 0)))
+    (is (= (str "  B B\n") (plot-line "D" 1)))
+    (is (= (str " C   C\n") (plot-line "D" 2)))
+    (is (= (str "D     D\n") (plot-line "D" 3)))
+
+
+
+    ))

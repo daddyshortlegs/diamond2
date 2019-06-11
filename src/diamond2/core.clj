@@ -29,7 +29,7 @@
     (calc-leading-spaces char index)
     (if (= 0 index)
       (calc-leading-spaces char index)
-      (+ 1 (calc-leading-spaces char index) (calc-middle-spaces char)))))
+      (+ 1 (calc-leading-spaces char index) (calc-middle-spaces (get-char-of-index index))))))
 
 (defn diamond-range [char]
   (concat (range 0 (+ 1 (get-index-of-char char))) (range (- (get-index-of-char char) 1) -1 -1)))
