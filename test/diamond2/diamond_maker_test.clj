@@ -1,8 +1,20 @@
 (ns diamond2.diamond-maker-test
   (:require [clojure.test :refer :all]
-            [diamond2.diamond-maker :refer :all]))
+            [diamond2.core :refer :all]))
 
+;(deftest a-small-one
+;  (testing "the small C"
+;    (def expected (str "   A\n"
+;                       "  B B\n"
+;                       " C   C\n"
+;                       "D     D\n"
+;                       " C   C\n"
+;                       "  B B\n"
+;                       "   A\n"
+;                       ))
+;    (is (= expected (diamond-maker "D")))))
 
+;(deftest the-big-one
 ;(testing "the big Z"
 ;  (def expected (str "                         A\n"
 ;                     "                        B B\n"
@@ -56,8 +68,7 @@
 ;                     "                        B B\n"
 ;                     "                         A\n"
 ;                     ))
-;  (is (= expected (diamond-maker "Z"))))
-
+;  (is (= expected (diamond-maker "Z")))))
 
 (deftest points-generator
   (testing "Get 2 points for Z at index 0"
@@ -73,7 +84,9 @@
     (is (= 50 (nth (get-points-for-line "Z" 25) 1))))
   )
 
-
+(deftest test-middle-spaces
+  (testing "middle spaces"
+    (is (= 1 (calc-middle-spaces "B")))))
 
 (deftest get-index-for-char-test
   (testing "index valiues"
@@ -104,18 +117,18 @@
     (is (= 2 (nth (get-points-for-line "B" 1) 1))))
   )
 
-;(deftest draw-line-given-two-points
-;  (testing "various points"
-;    (is (= (str "A") (gen-line "A" 0 0)))
-;    (is (= (str "AA") (gen-line "A" 0 1)))
-;    (is (= (str " B B") (gen-line "B" 1 3)))
-;    (is (= (str "     C    C") (gen-line "C" 5 10)))
-;    ))
-;
-(deftest draw-line-given-index
+(deftest draw-line-given-two-points
   (testing "various points"
-    (is (= (str "A") (plot-line "A" 0)))
-
-    (is (= (str " A") (plot-line "B" 0)))
-    (is (= (str "B B") (plot-line "B" 1)))
+    (is (= (str "A\n") (gen-line "A" 0 0)))
+    (is (= (str "AA\n") (gen-line "A" 0 1)))
+    (is (= (str " B B\n") (gen-line "B" 1 3)))
+    (is (= (str "     C    C\n") (gen-line "C" 5 10)))
     ))
+
+;(deftest draw-line-given-index
+;  (testing "various points"
+;    (is (= (str "A") (plot-line "A" 0)))
+;
+;    (is (= (str " A") (plot-line "B" 0)))
+;    (is (= (str "B B") (plot-line "B" 1)))
+;    ))

@@ -1,4 +1,4 @@
-(ns diamond2.diamond-maker
+(ns diamond2.core
   (:gen-class))
 
 (use '[clojure.string :only [index-of]])
@@ -15,15 +15,13 @@
 (defn draw-blanks [n] (apply str (take n (repeat " "))))
 
 (defn gen-line [char i j]
-  (println (str "i = " i " j = " j))
-  (str (draw-blanks i) char (if (= i j) "" (str (draw-blanks (- j i 1)) char))))
+  (str (draw-blanks i) char (if (= i j) "\n" (str (draw-blanks (- j i 1)) char "\n"))))
 
 (defn calc-leading-spaces [char index]
   (- (get-index-of-char char) index))
 
 (defn calc-middle-spaces [char]
   (+ 1 (* 2 (- (get-index-of-char char) 1))))
-
 
 (defn plot-line [char index]
   (gen-line
@@ -33,13 +31,14 @@
       (calc-leading-spaces char index)
       (+ 1 (calc-leading-spaces char index) (calc-middle-spaces char)))))
 
-;(defn diamond-maker [char]
-;  (for [x (range 0 (get-index-of-char char))] (gen-line (get-char-of-index x))
-;
-;  ))
+(defn diamond-range [char]
+  (concat (range 0 (+ 1 (get-index-of-char char))) (range (- (get-index-of-char char) 1) -1 -1)))
 
+(defn diamond-maker [char]
+  (apply str (for [x (diamond-range char)] (plot-line char x))))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (diamond-maker "Z"))
+
