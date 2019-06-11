@@ -38,7 +38,7 @@
   (apply str (for [x (diamond-range char)] (plot-line char x))))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "I print a big diamond"
   [& args]
-  (diamond-maker "Z"))
+  (println (diamond-maker "Z")))
 
