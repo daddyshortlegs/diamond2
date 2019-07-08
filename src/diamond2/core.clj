@@ -8,7 +8,8 @@
 (defn get-char-of-index [index] (str (.charAt "ABCDEFGHIJKLMNOPQRSTUVWXYZ" index)))
 
 (defn get-points-for-line [char index]
-  [(- (get-index-of-char char) index) (+ (get-index-of-char char) index)])
+  (let [index-char (get-index-of-char char)]
+    [(- index-char index) (+ index-char index)]))
 
 (defn draw-blanks [n] (apply str (repeat n " ")))
 
@@ -20,12 +21,11 @@
 (defn calc-middle-spaces [char] (+ 1 (* 2 (- (get-index-of-char char) 1))))
 
 (defn plot-line [char index]
-  (gen-line
-    (get-char-of-index index)
-    (calc-leading-spaces char index)
-    (if (= 0 index)
-      (calc-leading-spaces char index)
-      (+ 1 (calc-leading-spaces char index) (calc-middle-spaces (get-char-of-index index))))))
+  (let [leading-spaces (calc-leading-spaces char index) the-char (get-char-of-index index)]
+    (gen-line the-char leading-spaces
+      (if (= 0 index)
+        leading-spaces
+        (+ 1 leading-spaces (calc-middle-spaces the-char))))))
 
 (defn diamond-range [char]
   (concat (range 0 (+ 1 (get-index-of-char char))) (range (- (get-index-of-char char) 1) -1 -1)))
@@ -37,4 +37,3 @@
   "I print a big diamond"
   [& args]
   (println (diamond-maker "Z")))
-
